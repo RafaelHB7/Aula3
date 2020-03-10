@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.ListView);
 
         final ArrayList<String> listaDeFrutas = new ArrayList<>();
-
+        
         listaDeFrutas.add("Maçã");
         listaDeFrutas.add("Goiaba");
         listaDeFrutas.add("Banana");
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this, listaDeFrutas.get(position), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, ComponenteView.class);
-
+                intent.putExtra("Frutas", listaDeFrutas.get(position));
                 startActivity(intent);
             }
         });

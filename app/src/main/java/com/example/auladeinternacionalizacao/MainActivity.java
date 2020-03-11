@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, ComponenteView.class);
-
                 intent.putExtra("Componente", listaDeComponentes.get(position));
                 startActivity(intent);
             }

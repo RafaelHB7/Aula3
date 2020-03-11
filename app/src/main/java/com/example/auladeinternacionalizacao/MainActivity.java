@@ -23,28 +23,30 @@ public class MainActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.ListView);
 
-        final ArrayList<String> listaDeFrutas = new ArrayList<>();
-        
-        listaDeFrutas.add("Maçã");
-        listaDeFrutas.add("Goiaba");
-        listaDeFrutas.add("Banana");
-        listaDeFrutas.add("Pera");
-        listaDeFrutas.add("Uva");
-        listaDeFrutas.add("Melancia");
+        final ArrayList<String> listaDeComponentes = new ArrayList<>();
+
+        listaDeComponentes.add("Button");
+        listaDeComponentes.add("RadioButton");
+        listaDeComponentes.add("ImageButton");
+        listaDeComponentes.add("CheckBox");
+        listaDeComponentes.add("RatingBar");
+        listaDeComponentes.add("ToggleButton");
+        listaDeComponentes.add("DatePicker");
+        listaDeComponentes.add("AlertDialog");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout. simple_list_item_1,
                 android.R.id.text1,
-                listaDeFrutas);
+                listaDeComponentes);
 
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, listaDeFrutas.get(position), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, ComponenteView.class);
-                intent.putExtra("Frutas", listaDeFrutas.get(position));
+
+                intent.putExtra("Componente", listaDeComponentes.get(position));
                 startActivity(intent);
             }
         });
